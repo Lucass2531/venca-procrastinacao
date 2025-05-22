@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Como Vencer a Procrastinação em 30 Dias | O Plano Definitivo</title>
+    <meta name="description" content="Descubra como eliminar a procrastinação em apenas 30 dias com técnicas comprovadas e um plano passo a passo para aumentar sua produtividade.">
+    <script type="module" crossorigin src="assets/index-CflZARLt.js"></script>
+    <link rel="stylesheet" crossorigin href="assets/index-BQ4rujvA.css">
+    <style>
+      /* Estilos para substituir os preços no site */
+      .price-old {
+        text-decoration: line-through;
+        color: #888;
+        font-size: 1.1rem;
+      }
+      
+      .price-new {
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: #1A2E44;
+      }
+      
+      .price-container {
+        margin-bottom: 10px;
+      }
+      
+      .hotmart-price-section {
+        background: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin: 20px 0;
+        text-align: center;
+      }
+      
+      .hotmart-price-tag {
+        display: inline-block;
+        background: #FFD700;
+        color: #1A2E44;
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- Script para substituir os preços após o carregamento da página -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Função para substituir os preços no DOM
+        function updatePrices() {
+          // Encontrar todos os elementos que contêm preços
+          const priceElements = document.querySelectorAll('p, span, div');
+          
+          priceElements.forEach(el => {
+            // Substituir R$ 97,00 e R$ 67,00 por R$ 80,90
+            if (el.textContent.includes('R$ 97,00') || el.textContent.includes('R$ 67,00')) {
+              // Criar elementos para o novo formato de preço
+              const priceContainer = document.createElement('div');
+              priceContainer.className = 'price-container';
+              
+              const oldPrice = document.createElement('div');
+              oldPrice.className = 'price-old';
+              oldPrice.textContent = 'R$ 80,90';
+              
+              const newPrice = document.createElement('div');
+              newPrice.className = 'price-new';
+              newPrice.textContent = 'R$ 19,90';
+              
+              // Limpar o conteúdo original e adicionar os novos elementos
+              if (el.textContent.includes('R$ 97,00') || el.textContent.includes('R$ 67,00')) {
+                el.innerHTML = '';
+                el.appendChild(priceContainer);
+                priceContainer.appendChild(oldPrice);
+                priceContainer.appendChild(newPrice);
+              }
+            }
+          });
+          
+          // Adicionar seção de preço Hotmart em locais estratégicos
+          const ctaButtons = document.querySelectorAll('.btn-cta, .btn-primary');
+          ctaButtons.forEach(button => {
+            const parent = button.parentElement;
+            
+            // Criar seção de preço Hotmart
+            const priceSection = document.createElement('div');
+            priceSection.className = 'hotmart-price-section';
+            
+            const priceTag = document.createElement('div');
+            priceTag.className = 'hotmart-price-tag';
+            priceTag.textContent = 'OFERTA ESPECIAL';
+            
+            const oldPrice = document.createElement('div');
+            oldPrice.className = 'price-old';
+            oldPrice.textContent = 'De R$ 80,90';
+            
+            const newPrice = document.createElement('div');
+            newPrice.className = 'price-new';
+            newPrice.textContent = 'Por apenas R$ 19,90';
+            
+            // Montar a seção
+            priceSection.appendChild(priceTag);
+            priceSection.appendChild(oldPrice);
+            priceSection.appendChild(newPrice);
+            
+            // Inserir antes do botão
+            parent.insertBefore(priceSection, button);
+          });
+        }
+        
+        // Executar após um pequeno delay para garantir que o React renderizou tudo
+        setTimeout(updatePrices, 500);
+      });
+    </script>
+  </body>
+</html>
